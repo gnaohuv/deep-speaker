@@ -186,7 +186,7 @@ class DeepSpeakerModel:
                    activation=None,
                    padding='same',
                    kernel_initializer='glorot_uniform',
-                   kernel_regularizer=regularizers.l2(l=0.0001),
+                   kernel_regularizer=regularizers.l2(0.0001),
                    name=conv_name_base + '_2a')(input_tensor)
         x = BatchNormalization(name=conv_name_base + '_2a_bn')(x)
         x = self.clipped_relu(x)
@@ -198,7 +198,7 @@ class DeepSpeakerModel:
             activation=None,
             padding='same',
             kernel_initializer='glorot_uniform',
-            kernel_regularizer=regularizers.l2(l=0.0001),
+            kernel_regularizer=regularizers.l2(0.0001),
             name=conv_name_base + '_2b',
         )(x)
         x = BatchNormalization(name=conv_name_base + '_2b_bn')(x)
@@ -218,7 +218,7 @@ class DeepSpeakerModel:
                    activation=None,
                    padding='same',
                    kernel_initializer='glorot_uniform',
-                   kernel_regularizer=regularizers.l2(l=0.0001), name=conv_name)(inp)
+                   kernel_regularizer=regularizers.l2(0.0001), name=conv_name)(inp)
         o = BatchNormalization(name=conv_name + '_bn')(o)
         o = self.clipped_relu(o)
         for i in range(3):
